@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<center><h2>YOU HAVE SEARCHED FOR {{q}}</h2></center>
+<div class="container-fluid" style="margin-bottom:100px;">
+    <div class="row">
+        {% for i in p %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+  <img src="{{i.image.url}}" height="300px" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <a href="{% url 'shop:detail' i.id %}" class="btn btn-primary">MORE DETAILS</a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
